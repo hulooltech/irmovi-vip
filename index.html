@@ -1,195 +1,23 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>متجر أجهزة Apple</title>
-
-<!-- PayPal Smart Buttons -->
-<script src="https://www.paypal.com/sdk/js?client-id=BAAS2xAyomXSz_7ku-tR0zRnUe7gFcgW5RpO-5plpfNooz3GbDfCZ1jvBWQ8kErteHfaEU7tvxCqrTWlJY&currency=USD"></script>
-
-<style>
-body{font-family:Arial;background:#f9f9f9;margin:0;direction:rtl}
-header{background:#0070c9;color:white;text-align:center;padding:20px;font-size:1.6em;position:relative}
-.cart-info{position:absolute;left:20px;top:10px;background:#ffcc00;padding:5px 10px;border-radius:5px;cursor:pointer}
-.container{padding:20px;max-width:1200px;margin:auto}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px}
-.item{background:white;padding:15px;border-radius:10px;text-align:center}
-button{background:#0070c9;color:white;border:none;padding:8px 10px;border-radius:5px;cursor:pointer}
-#cartModal{display:none;position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.6);top:0;left:0;justify-content:center;align-items:center}
-#cartContent{background:white;padding:20px;border-radius:10px;width:90%;max-width:500px}
-</style>
+<title>GSM SHTOOL Store</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-متجر أجهزة Apple
-<div class="cart-info" onclick="toggleCart()" id="cartInfo">0 منتجات | $0</div>
-</header>
+<h1>📱 GSM SHTOOL Services</h1>
 
-<div class="container" id="products"></div>
+<h2>iPhone Services</h2>
+<div id="iphone-list" class="grid"></div>
 
-<!-- السلة -->
-<div id="cartModal">
-<div id="cartContent">
-<h3>سلة الشراء</h3>
-<div id="cartItems"></div>
-<h4 id="total"></h4>
+<h2>iPad Services</h2>
+<div id="ipad-list" class="grid"></div>
 
-<!-- زر PayPal -->
-<div id="paypal-button-container"></div>
-
-<button onclick="toggleCart()">إغلاق</button>
-</div>
-</div>
-
-<script>
-
-//////////////////////////
-// 🔹 المنتجات
-//////////////////////////
-
-const products = [
-{name:"iPhone 11",price:45},
-{name:"iPhone 12",price:90},
-{name:"iPhone 13",price:115},
-{name:"iPhone 14",price:160},
-{name:"iPhone 15",price:165},
-{name:"iPhone 16",price:190},
-{name:"iPhone 17",price:195},
-{name:"iPad 9",price:55},
-{name:"iPad 10",price:65},
-{name:"iPad Air 5",price:85}
-];
-
-//////////////////////////
-// 🔹 السلة
-//////////////////////////
-
-let cart = [];
-
-function renderProducts(){
-const container=document.getElementById("products");
-products.forEach(p=>{
-const div=document.createElement("div");
-div.className="item";
-div.innerHTML=`
-<h4>${p.name}</h4>
-<p>$${p.price}</p>
-<button onclick='addToCart(${JSON.stringify(p)})'>إضافة</button>
-`;
-container.appendChild(div);
-});
-}
-
-function addToCart(p){
-const exist=cart.find(i=>i.name===p.name);
-if(exist) exist.qty++;
-else cart.push({...p,qty:1});
-updateCart();
-}
-
-function updateCart(){
-document.getElementById("cartItems").innerHTML="";
-let total=0;
-
-cart.forEach((item,i)=>{
-total+=item.price*item.qty;
-
-document.getElementById("cartItems").innerHTML+=`
-<div>
-${item.name} x${item.qty} = $${item.price*item.qty}
-<button onclick="removeItem(${i})">❌</button>
-</div>`;
-});
-
-document.getElementById("total").innerText="الإجمالي: $"+total;
-document.getElementById("cartInfo").innerText=cart.length+" منتجات | $"+total;
-}
-
-function removeItem(i){
-cart.splice(i,1);
-updateCart();
-}
-
-function toggleCart(){
-const m=document.getElementById("cartModal");
-m.style.display=m.style.display==="flex"?"none":"flex";
-}
-
-//////////////////////////
-// 🔹 Telegram
-//////////////////////////
-
-const TOKEN="YOUR_BOT_TOKEN";
-const CHAT_ID="YOUR_CHAT_ID";
-
-function sendTelegram(msg){
-fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(msg)}`);
-}
-
-//////////////////////////
-// 🔹 حفظ الطلب
-//////////////////////////
-
-function saveOrder(order){
-let orders=JSON.parse(localStorage.getItem("orders"))||[];
-orders.push(order);
-localStorage.setItem("orders",JSON.stringify(orders));
-}
-
-//////////////////////////
-// 🔹 PayPal
-//////////////////////////
-
-function getTotal(){
-return cart.reduce((s,i)=>s+i.price*i.qty,0).toFixed(2);
-}
-
-paypal.Buttons({
-createOrder:function(data,actions){
-return actions.order.create({
-purchase_units:[{amount:{value:getTotal()}}]
-});
-},
-
-onApprove:function(data,actions){
-return actions.order.capture().then(function(details){
-
-let text="طلب جديد:\n";
-
-cart.forEach(i=>{
-text+=`${i.name} x${i.qty} = $${i.price*i.qty}\n`;
-});
-
-text+="الإجمالي: $"+getTotal();
-
-sendTelegram(text);
-
-saveOrder({
-items:cart,
-total:getTotal(),
-customer:details.payer.name.given_name,
-date:new Date()
-});
-
-alert("تم الدفع بنجاح ✅");
-
-cart=[];
-updateCart();
-toggleCart();
-
-});
-}
-}).render('#paypal-button-container');
-
-//////////////////////////
-
-renderProducts();
-
-</script>
+<script src="products.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
