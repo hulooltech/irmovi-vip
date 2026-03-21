@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>طلب خدمة فتح iCloud</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+.container {
+    background: #1e293b;
+    padding: 20px;
+    margin: 50px auto;
+    width: 350px;
+    border-radius: 15px;
+}
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+}
+.price {
+    font-size: 20px;
+    color: #22c55e;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>طلب فتح iCloud</h2>
+
+    <!-- نوع الجهاز -->
+    <select id="category" onchange="loadModels()">
+        <option value="">اختر النوع</option>
+        <option value="iphone">📱 iPhone</option>
+        <option value="ipad">📲 iPad</option>
+        <option value="watch">⌚ Apple Watch</option>
+    </select>
+
+    <!-- الموديل -->
+    <select id="model" onchange="showPrice()">
+        <option>اختر الموديل</option>
+    </select>
+
+    <!-- الرقم التسلسلي -->
+    <input type="text" placeholder="ادخل IMEI / Serial Number">
+
+    <!-- السعر -->
+    <div class="price" id="price">السعر: --</div>
+
+    <!-- PayPal -->
+    <div id="paypal-container-H3WVD9VTSG2R8"></div>
+</div>
+
+<!-- PayPal -->
+<script src="https://www.paypal.com/sdk/js?client-id=BAAS2xAyomXSz_7ku-tR0zRnUe7gFcgW5RpO-5plpfNooz3GbDfCZ1jvBWQ8kErteHfaEU7tvxCqrTWlJY&components=hosted-buttons&currency=USD"></script>
+
+<script>
+paypal.HostedButtons({
+    hostedButtonId: "H3WVD9VTSG2R8",
+}).render("#paypal-container-H3WVD9VTSG2R8");
+</script>
+
+<script>
+// البيانات
+const data = {
+iphone: {
+"iPhone 6":25,
+"iPhone 6 Plus":25,
+"iPhone 6s":25,
+"iPhone 6s Plus":25,
+"iPhone SE":30,
+"iPhone 7":30,
+"iPhone 7 Plus":30,
+"iPhone 8":35,
+"iPhone 8 Plus":35,
+"iPhone X":35,
+"iPhone XR":40,
+"iPhone XS":40,
+"iPhone XS Max":45,
+"iPhone 11":45,
+"iPhone 11 Pro":55,
+"iPhone 11 Pro Max":75,
+"iPhone 12":90,
+"iPhone 12 mini":90,
+"iPhone 12 Pro":95,
+"iPhone 12 Pro Max":100,
+"iPhone 13":115,
+"iPhone 13 mini":120,
+"iPhone 13 Pro":135,
+"iPhone 13 Pro Max":150,
+"iPhone 14":160,
+"iPhone 14 Plus":160,
+"iPhone 14 Pro":165,
+"iPhone 14 Pro Max":175,
+"iPhone 15":165,
+"iPhone 15 Plus":175,
+"iPhone 15 Pro":180,
+"iPhone 15 Pro Max":190,
+"iPhone 16":190,
+"iPhone 16 Plus":195,
+"iPhone 16 Pro":195,
+"iPhone 16 Pro Max":205,
+"iPhone 16e":195,
+"iPhone 17":195,
+"iPhone 17 Pro":200,
+"iPhone 17 Pro Max":210,
+"iPhone 17 Air":200
+},
+
+ipad: {
+"iPad 8":50,
+"iPad 9":55,
+"iPad 10":65,
+"Air 4":80,
+"Air 5":85,
+"Pro 9.7":140,
+"Pro 10.5":140,
+"Pro 11":140,
+"Pro 12.9":150
+},
+
+watch: {
+"Series 4":0,
+"Series 5":0,
+"Series 6":0,
+"Series 7":0,
+"Series 8":0,
+"Series 9":0,
+"Series 10":0,
+"Ultra 1":0,
+"Ultra 2":0,
+"Ultra 3":0
+}
+};
+
+// تحميل الموديلات
+function loadModels() {
+    let category = document.getElementById("category").value;
+    let model = document.getElementById("model");
+    model.innerHTML = "";
+
+    for (let item in data[category]) {
+        let option = document.createElement("option");
+        option.value = item;
+        option.text = item;
+        model.appendChild(option);
+    }
+}
+
+// عرض السعر
+function showPrice() {
+    let category = document.getElementById("category").value;
+    let model = document.getElementById("model").value;
+
+    let price = data[category][model];
+    document.getElementById("price").innerText = "السعر: $" + price;
+}
+</script>
+
+</body>
+</html>
