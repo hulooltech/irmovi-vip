@@ -1,37 +1,56 @@
-function renderProducts() {
-  const iphoneDiv = document.getElementById("iphone-list");
-  const ipadDiv = document.getElementById("ipad-list");
+const devices = [
+["iPhone 11",45],
+["iPhone 12",90],
+["iPhone 13",115],
+["iPhone 14",160],
+["iPhone 15",165],
+["iPhone 16",190]
+];
 
-  products.forEach(p => {
-    const item = `
-      <div class="card">
-        <h3>${p.name}</h3>
-        <p>$${p.price}</p>
-        <input type="text" placeholder="IMEI / Serial" id="serial-${p.name}">
-        <button onclick="order('${p.name}', ${p.price})">Order</button>
-      </div>
-    `;
+let select = document.getElementById("deviceSelect");
 
-    if (p.category === "iphone") {
-      iphoneDiv.innerHTML += item;
-    } else {
-      ipadDiv.innerHTML += item;
+devices.forEach(d=>{
+    let opt = document.createElement("option");
+    opt.value = d[1];
+    opt.text = d[0] + " - $" + d[1];
+    select.appendChild(opt);
+});
+
+async function order(){
+
+    let user = auth.currentUser;
+
+    if(!user){
+        alert("سجل دخول");
+        return;
     }
-  });
+
+    let price = parseInt(select.value);
+    let name = select.options[select.selectedIndex].text;
+    let imei = document.getElementById("imeiInput").value;
+
+    let userRef = db.collection("users").doc(user.uid);
+    let doc = await userRef.get();
+
+    let balance = doc.data().balance;
+
+    if(balance < price){
+        alert("رصيدك غير كافي");
+        return;
+    }
+
+    await userRef.update({
+        balance: balance - price
+    });
+
+    await db.collection("orders").add({
+        user: user.uid,
+        device: name,
+        price: price,
+        imei: imei,
+        status: "pending",
+        date: new Date()
+    });
+
+    alert("تم الطلب ✅");
 }
-
-function order(name, price) {
-  const serial = document.getElementById(`serial-${name}`).value;
-
-  if (!serial) {
-    alert("Enter IMEI / Serial");
-    return;
-  }
-
-  alert(`Order Sent:
-Device: ${name}
-Price: $${price}
-Serial: ${serial}`);
-}
-
-renderProducts();
