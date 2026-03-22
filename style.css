@@ -1,39 +1,35 @@
 body {
-  font-family: Arial;
-  background: #111;
-  color: #fff;
-  padding: 20px;
+    background:#0b0b0b;
+    color:white;
+    font-family:Tahoma;
+    text-align:center;
 }
 
-h1, h2 {
-  text-align: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
+.container {
+    max-width:400px;
+    margin:auto;
 }
 
 .card {
-  background: #1e1e1e;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
+    background:#1c1c1c;
+    border-radius:20px;
+    padding:20px;
+    margin:15px;
 }
 
-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 8px;
+input, select {
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:none;
 }
 
 button {
-  margin-top: 10px;
-  padding: 10px;
-  width: 100%;
-  background: green;
-  color: white;
-  border: none;
-  cursor: pointer;
+    width:100%;
+    padding:14px;
+    background:#00aa00;
+    color:white;
+    border:none;
+    border-radius:10px;
 }
