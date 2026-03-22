@@ -1,0 +1,22 @@
+async function order(){
+
+    let device = deviceSelect.options[deviceSelect.selectedIndex].text;
+    let price = parseInt(deviceSelect.value);
+    let imei = imeiInput.value;
+
+    if(!imei){
+        alert("أدخل IMEI");
+        return;
+    }
+
+    // حفظ الطلب مؤقت
+    let doc = await db.collection("orders").add({
+        device,
+        price,
+        imei,
+        status: "waiting_payment"
+    });
+
+    // تحويل لصفحة الدفع
+    window.location.href = "https://buy.stripe.com/test_xxxx"; 
+}
