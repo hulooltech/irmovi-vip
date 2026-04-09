@@ -1,35 +1,293 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
-<title>iRmove VIP</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iRmove VIP - Elite Apple Device Solutions</title>
+    <style>
+        /* تعريف الأنماط الرئيسية لتصميم فاخر */
+        :root {
+            --primary-bg: #030a1a;
+            --accent-gold: #c79e61; /* لون ذهبي راقي */
+            --accent-gold-dark: #a67f4a;
+            --text-white: #e8e6e3;
+            --panel-bg: rgba(255, 255, 255, 0.05); /* تأثير زجاجي شفاف */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-bg);
+            background-image: radial-gradient(circle at 10% 20%, rgba(13, 27, 42, 0.4) 0%, rgba(3, 10, 26, 0.9) 90%);
+            color: var(--text-white);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* حاوية الشعار */
+        .logo-container {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        /* تلميح: هنا ستقوم بدمج الشعار الفخم من الصورة image_0.png */
+        .logo-placeholder {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            text-shadow: 0 0 15px var(--accent-gold);
+            letter-spacing: 2px;
+            /* يمكنك استبدال النص التالي بصورة الشعار الحقيقية */
+            font-family: 'Times New Roman', Times, serif; 
+        }
+
+        /* حاوية قسم النبذة */
+        .intro-panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(199, 158, 97, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            max-width: 900px;
+            margin-bottom: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .intro-content {
+            text-align: left;
+        }
+
+        .intro-content h1 {
+            color: var(--accent-gold);
+            margin-top: 0;
+            font-size: 2.2rem;
+            font-weight: 300;
+        }
+
+        .intro-content p {
+            line-height: 1.8;
+            color: #b0b3b8;
+            font-size: 1.1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            font-size: 1rem;
+            margin: 10px 0;
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+            display: inline-block;
+            width: 25px;
+            margin-right: 10px;
+        }
+
+        /* تلميح: هنا ستقوم بدمج صورة الأجهزة الفخمة من الصورة image_0.png */
+        .devices-preview {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            /* يمكنك استبدال لون الخلفية التالي بالصورة */
+            background: url('path_to_device_image.png') center center no-repeat;
+            background-size: contain;
+            /* بديل مؤقت */
+            border: 2px solid var(--accent-gold);
+            background-color: #0d1b2a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #50555c;
+            font-style: italic;
+        }
+
+        /* حاوية قسم الطلب */
+        .order-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .order-card {
+            background: #01040a;
+            border: 2px solid var(--accent-gold);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(199, 158, 97, 0.15);
+            width: 100%;
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .order-card h2 {
+            margin-top: 0;
+            color: var(--accent-gold);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 15px;
+            margin: 8px 0 20px 0;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(199, 158, 97, 0.3);
+            border-radius: 10px;
+            color: var(--text-white);
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        select:focus, input:focus {
+            border-color: var(--accent-gold);
+            outline: none;
+            box-shadow: 0 0 10px rgba(199, 158, 97, 0.3);
+        }
+
+        /* أزرار مخصصة */
+        button {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-order {
+            background: linear-gradient(45deg, var(--accent-gold-dark), var(--accent-gold));
+            color: #030a1a;
+            box-shadow: 0 5px 15px rgba(199, 158, 97, 0.4);
+        }
+
+        .btn-order:hover {
+            box-shadow: 0 8px 25px rgba(199, 158, 97, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-tools {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 15px;
+        }
+
+        .btn-tools:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* تحسين التجاوب */
+        @media (max-width: 768px) {
+            .intro-panel {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 25px;
+            }
+            .intro-content {
+                text-align: center;
+            }
+            .features-list li {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-<h1>🔥 iRmove VIP</h1>
-<a href="tools.html">VIP Tools</a>
-</header>
+    <header class="logo-container">
+        <div class="logo-placeholder">iRmove VIP</div>
+    </header>
 
-<div class="container">
-<div class="card">
+    <section class="intro-panel">
+        <div class="intro-content">
+            <h1>Elite Apple Device Solutions</h1>
+            <p>
+                Welcome to <strong>iRmove VIP</strong>, your premier destination for elite device software solutions. We specialize in providing official, permanent <strong>iCloud Activation Lock unlocks</strong>, MDM profile removal, and network carrier unlocking for all Apple devices. Our service guarantees security, efficiency, and a seamless experience.
+            </p>
+            <ul class="features-list">
+                <li>✅ Official iCloud Unlocks</li>
+                <li>✅ MDM Profile Removal</li>
+                <li>✅ Network Carrier Unlocking</li>
+                <li>✅ Exclusive Free Tools</li>
+            </ul>
+        </div>
+        <div class="devices-preview">
+            [Device Image Integration]
+        </div>
+    </section>
 
-<h2>Select Device</h2>
+    <div class="order-container">
+        <div class="order-card">
+            <h2>START NEW ORDER</h2>
 
-<select id="device"></select>
+            <label for="iphone">SELECT IPHONE MODEL</label>
+            <select id="iphone">
+                <option value="">Select a model...</option>
+                </select>
 
-<input id="imei" placeholder="Enter IMEI / Serial">
+            <label for="ipad">SELECT IPAD MODEL</label>
+            <select id="ipad">
+                <option value="">Select a model...</option>
+            </select>
 
-<button onclick="order()">🚀 Submit Order</button>
+            <label for="watch">SELECT APPLE WATCH MODEL</label>
+            <select id="watch">
+                <option value="">Select a model...</option>
+            </select>
 
-</div>
-</div>
+            <label for="imei">ENTER IMEI / SERIAL NUMBER</label>
+            <input id="imei" type="text" placeholder="IMEI or Serial Number">
 
-<footer>
-<p>Support: @gsmshtool</p>
-<p>BTC: bc1p3w4yfuyu52gdv296nqrs72mfaafkr5qu7u3xmamflrmql0sqvsmqvhazr9</p>
-</footer>
+            <button class="btn-order" onclick="order()">🚀 SUBMIT ORDER</button>
 
-<script src="app.js"></script>
+            <a href="tools.html" style="text-decoration: none;">
+                <button class="btn-tools">💻 FREE TOOLS</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function order() {
+            const imei = document.getElementById('imei').value;
+            if(!imei) {
+                alert("Please enter a valid IMEI or Serial Number.");
+                return;
+            }
+            alert("Order received for device with ID: " + imei + ". Processing will begin shortly.");
+        }
+    </script>
+
 </body>
 </html>
