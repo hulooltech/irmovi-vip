@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP HUB | Premium Tech & Tools</title>
+    <title>VIP CORE | Premium Tech Solutions</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -12,8 +12,9 @@
     <nav class="navbar">
         <div class="logo">VIP<span>CORE</span></div>
         <div class="nav-links">
-            <a href="#order-section">Order Devices</a>
-            <a href="#tools-section">VIP Tools</a>
+            <a href="#order-section"><i class="fas fa-shopping-cart"></i> Services</a>
+            <a href="#tools-section"><i class="fas fa-download"></i> Downloads</a>
+            <a href="https://t.me/iunlocker99" target="_blank" class="tg-link"><i class="fab fa-telegram"></i> Support</a>
         </div>
     </nav>
 
@@ -21,45 +22,55 @@
         
         <section id="order-section" class="glass-section">
             <div class="section-header">
-                <i class="fas fa-shopping-cart"></i>
-                <h2>Premium Order System</h2>
+                <i class="fas fa-fingerprint"></i>
+                <h2>Digital Services Hub</h2>
+                <p>Unlock, Check, and Manage your devices with precision.</p>
+            </div>
+
+            <div class="tabs-container">
+                <button class="tab-link active" onclick="openTab(event, 'apple')">APPLE SERVICES</button>
+                <button class="tab-link" onclick="openTab(event, 'android')">ANDROID SERVICES</button>
             </div>
             
-            <div class="order-grid">
-                <div class="input-group">
-                    <label>Select iPhone Model</label>
-                    <select id="iphone"></select>
+            <div class="forms-wrapper">
+                <div class="input-group full-width">
+                    <label>Step 1: Choose Service</label>
+                    <div id="apple" class="tab-content default-tab">
+                        <select id="apple-services" onchange="toggleImeiField('apple')"></select>
+                    </div>
+                    <div id="android" class="tab-content">
+                        <select id="android-services" onchange="toggleImeiField('android')"></select>
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <label>Select iPad Tablet</label>
-                    <select id="ipad"></select>
+                <div id="imei-container" class="input-group full-width" style="display: none;">
+                    <label>Step 2: Enter IMEI or Serial Number</label>
+                    <div class="imei-input-box">
+                        <i class="fas fa-barcode"></i>
+                        <input type="text" id="device-imei" placeholder="IMEI 1 / SN (Required)">
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <label>Select Apple Watch</label>
-                    <select id="watch"></select>
-                </div>
-
-                <div class="input-group">
-                    <label>Payment Method</label>
+                <div class="input-group full-width">
+                    <label>Step 3: Payment Method</label>
                     <select id="payment">
-                        <option value="crypto">Cryptocurrency (BTC/USDT)</option>
-                        <option value="cash">Cash on Delivery</option>
-                        <option value="install">Installments</option>
+                        <option value="crypto">Binance Pay / USDT</option>
+                        <option value="wallet">Electronic Wallet</option>
+                        <option value="balance">Account Credits</option>
                     </select>
                 </div>
             </div>
 
-            <button onclick="sendOrder()" class="btn-main pulse">Confirm VIP Order</button>
+            <button onclick="sendFinalOrder()" class="btn-main pulse">
+                Process Request <span id="final-price"></span>
+            </button>
         </section>
-
-        <hr class="separator">
 
         <section id="tools-section">
             <div class="section-header">
-                <i class="fas fa-laptop-code"></i>
+                <i class="fas fa-archive"></i>
                 <h2>VIP Forensic Tools</h2>
+                <p>Professional grade software for specialists.</p>
             </div>
 
             <div class="tools-grid">
@@ -67,16 +78,18 @@
                     <span class="badge">V17.1</span>
                     <i class="fas fa-microchip tool-icon"></i>
                     <h3>Oxygen Forensic</h3>
-                    <p>Advanced extraction without data formatting.</p>
-                    <a href="https://www.mediafire.com/folder/cpxe6acypd69j/OXYGEN+17.1.0.131" class="btn btn-download">Download Folder</a>
+                    <p>Professional extraction without data loss.</p>
+                    <a href="https://www.mediafire.com/folder/cpxe6acypd69j/OXYGEN+17.1.0.131" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download Full
+                    </a>
                 </div>
 
                 <div class="tool-card">
                     <span class="badge gold">V7.71</span>
                     <i class="fas fa-unlock-alt tool-icon"></i>
                     <h3>UFED Celebrite</h3>
-                    <p>Professional mobile unlocking & physical bypass.</p>
-                    <div class="pass-box">Pass: <span>@gaddtech</span></div>
+                    <p>Bypass and unlock security protocols.</p>
+                    <div class="pass-box">Password: <span>@gaddtech</span></div>
                     <div class="btn-group">
                         <a href="https://www.mediafire.com/folder/y28kdkqp8xnyi/UFED7.71" class="btn btn-outline">Setup</a>
                         <a href="https://drive.google.com/drive/folders/1HOpn4Qmsqc6TNN0s51pvO6Sqrg3eO4Ws" class="btn btn-crack">Crack</a>
@@ -84,6 +97,10 @@
                 </div>
             </div>
         </section>
+
+        <footer class="main-footer">
+            <p>&copy; 2026 VIP CORE - Powered by Professional Engineering</p>
+        </footer>
     </div>
 
     <script src="app.js"></script>
