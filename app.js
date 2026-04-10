@@ -1,53 +1,78 @@
-const DEVICES_DATA = {
-    iphone: {
-        title: "iPhone",
+const DEVICES_SERVICES = {
+    apple: {
+        id: "apple-services",
         items: {
-            "iPhone 17 Pro Max": 210, "iPhone 17 Pro": 200, "iPhone 16 Pro Max": 205,
-            "iPhone 15 Pro Max": 190, "iPhone 11": 45
+            "iPhone 17 Pro Max Unlock": 210,
+            "iPhone 16 Pro Max Unlock": 205,
+            "Check iCloud Clean/Lost": 3.30,
+            "Carrier Simlock Check": 2.50
         }
     },
-    ipad: {
-        title: "iPad",
+    android: {
+        id: "android-services",
         items: {
-            "iPad Pro 12.9": 150, "iPad Air 5": 85, "iPad 10": 65
-        }
-    },
-    watch: {
-        title: "Watch",
-        items: {
-            "Ultra 3": 120, "Series 10": 100, "Series 9": 90
+            "Samsung FRP Bypass": 15,
+            "Xiaomi Mi Account Remove": 25,
+            "Samsung Knox Check": 3.00,
+            "Android Network Unlock": 50
         }
     }
 };
 
 function initializeApp() {
-    for (const category in DEVICES_DATA) {
-        const select = document.getElementById(category);
+    for (const category in DEVICES_SERVICES) {
+        const selectId = DEVICES_SERVICES[category].id;
+        const select = document.getElementById(selectId);
         if (!select) continue;
 
-        select.innerHTML = `<option value="">Select ${DEVICES_DATA[category].title}</option>`;
-        
-        const items = DEVICES_DATA[category].items;
+        select.innerHTML = `<option value="">-- Choose ${category.toUpperCase()} Service --</option>`;
+        const items = DEVICES_SERVICES[category].items;
         for (const name in items) {
+            const price = items[name];
             const option = document.createElement("option");
-            option.value = items[name];
-            option.textContent = `${name} - $${items[name]}`;
+            option.value = price;
+            option.textContent = `${name} (USD ${price.toFixed(2)})`;
             select.appendChild(option);
         }
     }
 }
 
-function sendOrder() {
-    const iphone = document.getElementById("iphone").value;
-    const payment = document.getElementById("payment").value;
+function openTab(evt, tabName) {
+    var i, tabContent, tabLinks;
+    tabContent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabContent.length; i++) { tabContent[i].style.display = "none"; }
+    tabLinks = document.getElementsByClassName("tab-link");
+    for (i = 0; i < tabLinks.length; i++) { tabLinks[i].className = tabLinks[i].className.replace(" active", ""); }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+    document.getElementById("imei-container").style.display = "none";
+}
 
-    if (!iphone) {
-        alert("⚠️ Please select at least one iPhone model.");
+function toggleImeiField(category) {
+    const select = document.getElementById(`${category}-services`);
+    const imeiContainer = document.getElementById("imei-container");
+    const finalPriceSpan = document.getElementById("final-price");
+    
+    if (select.value) {
+        imeiContainer.style.display = "block";
+        finalPriceSpan.textContent = `- $${parseFloat(select.value).toFixed(2)}`;
+    } else {
+        imeiContainer.style.display = "none";
+        finalPriceSpan.textContent = "";
+    }
+}
+
+function sendFinalOrder() {
+    const activeTab = document.querySelector(".tab-link.active").innerText.toLowerCase().includes("apple") ? "apple" : "android";
+    const serviceSelect = document.getElementById(`${activeTab}-services`);
+    const imei = document.getElementById("device-imei").value;
+
+    if (!serviceSelect.value || !imei) {
+        alert("⚠️ Please select a service and enter the IMEI number!");
         return;
     }
 
-    console.log("VIP Order Sent:", { devicePrice: iphone, method: payment });
-    alert("🚀 VIP Order Received! We will process your request immediately.");
+    alert(`✅ Request Sent!\n\nService: ${serviceSelect.options[serviceSelect.selectedIndex].text}\nIMEI: ${imei}\nStatus: Processing...`);
 }
 
 document.addEventListener("DOMContentLoaded", initializeApp);
