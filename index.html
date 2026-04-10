@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP CORE | Premium Tech Solutions</title>
+    <title>VIP CORE | Professional Unlocking Hub</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -24,7 +24,7 @@
             <div class="section-header">
                 <i class="fas fa-fingerprint"></i>
                 <h2>Digital Services Hub</h2>
-                <p>Official Apple OFF Unlocking & Global Device Checks.</p>
+                <p>Official Apple OFF Unlocking | 1-24 Hours Delivery</p>
             </div>
 
             <div class="tabs-container">
@@ -56,35 +56,19 @@
                     <select id="payment">
                         <option value="btc">Bitcoin (BTC)</option>
                         <option value="usdt">Binance Pay / USDT</option>
-                        <option value="wallet">Electronic Wallet</option>
                     </select>
                 </div>
             </div>
 
             <button onclick="sendFinalOrder()" class="btn-main pulse">
-                Confirm & Process Request <span id="final-price"></span>
+                Confirm Order <span id="final-price"></span>
             </button>
 
             <div class="crypto-payment-card">
-                <h4><i class="fab fa-bitcoin"></i> Bitcoin Payment Address</h4>
+                <h4><i class="fab fa-bitcoin"></i> Bitcoin Wallet Address</h4>
                 <div class="wallet-address">
                     <code>bc1p3w4yfuyu52gdv296nqrs72mfaafkr5qu7u3xmamflrmql0sqvsmqvhazr9</code>
                     <button onclick="copyWallet()">Copy</button>
-                </div>
-            </div>
-
-            <div class="service-notes">
-                <div class="note-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span><strong>Method:</strong> Official Apple OFF Unlocking.</span>
-                </div>
-                <div class="note-item">
-                    <i class="fas fa-clock"></i>
-                    <span><strong>Duration:</strong> 1 to 24 Hours maximum.</span>
-                </div>
-                <div class="note-item">
-                    <i class="fas fa-info-circle"></i>
-                    <span><strong>Note:</strong> Send a screenshot of your payment to support.</span>
                 </div>
             </div>
         </section>
@@ -115,8 +99,28 @@
         </section>
 
         <footer class="main-footer">
-            <p>&copy; 2026 VIP CORE - Powered by Professional Engineering</p>
+            <p>&copy; 2026 VIP CORE - Professional Engineering</p>
         </footer>
+    </div>
+
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal-content glass-section">
+            <div class="modal-icon-container"><i class="fas fa-sync fa-spin"></i></div>
+            <h3>Order Under Processing</h3>
+            <div class="order-info-card">
+                <p><strong>Order ID:</strong> <span id="display-order-id">#VIP-78291</span></p>
+                <p><strong>Service:</strong> <span id="display-service">---</span></p>
+                <p><strong>Status:</strong> <span class="status-badge">Awaiting Payment</span></p>
+            </div>
+            <div class="tracking-section">
+                <label>Track Status:</label>
+                <div class="tracking-input-box">
+                    <input type="text" id="track-input" placeholder="Order ID">
+                    <button onclick="trackOrder()">Track</button>
+                </div>
+            </div>
+            <button onclick="closeModal()" class="btn-outline" style="margin-top:20px; width:100%">Close</button>
+        </div>
     </div>
 
     <script src="app.js"></script>
