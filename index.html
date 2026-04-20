@@ -1,128 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP CORE | Professional Unlocking Hub</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iRmove VIP | iCloud Unlock & GSM Services</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<meta name="description" content="iRmove VIP - Professional iCloud Unlock, IMEI Check, FRP Bypass and GSM Tools. Fast and trusted service.">
+<meta name="keywords" content="iCloud Unlock, IMEI Check, GSM Tools, FRP Bypass, iPhone Unlock">
+
+<style>
+body{background:#0b0b12;color:white;font-family:Arial;}
+.card{transition:.3s}
+.card:hover{transform:translateY(-5px) scale(1.04)}
+.glow{text-shadow:0 0 15px #6c63ff}
+</style>
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="logo">VIP<span>CORE</span></div>
-        <div class="nav-links">
-            <a href="#order-section"><i class="fas fa-shopping-cart"></i> Services</a>
-            <a href="#tools-section"><i class="fas fa-download"></i> Downloads</a>
-            <a href="https://t.me/iunlocker99" target="_blank" class="tg-link"><i class="fab fa-telegram"></i> Support</a>
-        </div>
-    </nav>
+<!-- HERO -->
+<div class="text-center py-12">
+<h1 class="text-4xl md:text-5xl font-bold glow">iRmove VIP</h1>
+<p class="text-gray-400 mt-3">Professional GSM & iCloud Unlock Services</p>
 
-    <div class="main-wrapper">
-        
-        <section id="order-section" class="glass-section">
-            <div class="section-header">
-                <i class="fas fa-fingerprint"></i>
-                <h2>Digital Services Hub</h2>
-                <p>Official Apple OFF Unlocking | 1-24 Hours Delivery</p>
-            </div>
+<div class="mt-6">
+<a href="order.html" class="bg-blue-600 px-6 py-2 rounded mr-2">Order Now</a>
+<a href="check.html" class="bg-gray-700 px-6 py-2 rounded">Free Check</a>
+</div>
+</div>
 
-            <div class="tabs-container">
-                <button class="tab-link active" onclick="openTab(event, 'apple')">APPLE SERVICES</button>
-                <button class="tab-link" onclick="openTab(event, 'android')">ANDROID SERVICES</button>
-            </div>
-            
-            <div class="forms-wrapper">
-                <div class="input-group full-width">
-                    <label>Step 1: Choose Service</label>
-                    <div id="apple" class="tab-content default-tab">
-                        <select id="apple-services" onchange="toggleImeiField('apple')"></select>
-                    </div>
-                    <div id="android" class="tab-content">
-                        <select id="android-services" onchange="toggleImeiField('android')"></select>
-                    </div>
-                </div>
+<!-- SERVICES -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-5 p-5">
 
-                <div id="imei-container" class="input-group full-width" style="display: none;">
-                    <label>Step 2: Enter IMEI or Serial Number</label>
-                    <div class="imei-input-box">
-                        <i class="fas fa-barcode"></i>
-                        <input type="text" id="device-imei" placeholder="IMEI 1 / SN (Required)">
-                    </div>
-                </div>
+<a href="iphone.html" class="card bg-gray-900 p-5 rounded-xl text-center">📱 iPhone</a>
+<a href="ipad.html" class="card bg-gray-900 p-5 rounded-xl text-center">📲 iPad</a>
+<a href="watch.html" class="card bg-gray-900 p-5 rounded-xl text-center">⌚ Watch</a>
+<a href="bypass.html" class="card bg-gray-900 p-5 rounded-xl text-center">🔓 iCloud Bypass</a>
+<a href="frp.html" class="card bg-gray-900 p-5 rounded-xl text-center">🤖 FRP Android</a>
+<a href="programs.html" class="card bg-gray-900 p-5 rounded-xl text-center">💻 Free Programs</a>
 
-                <div class="input-group full-width">
-                    <label>Step 3: Payment Method</label>
-                    <select id="payment">
-                        <option value="btc">Bitcoin (BTC)</option>
-                        <option value="usdt">Binance Pay / USDT</option>
-                    </select>
-                </div>
-            </div>
+</div>
 
-            <button onclick="sendFinalOrder()" class="btn-main pulse">
-                Confirm Order <span id="final-price"></span>
-            </button>
+<!-- REVIEWS -->
+<div class="p-5">
+<h2 class="text-xl mb-4 glow">Customer Reviews</h2>
 
-            <div class="crypto-payment-card">
-                <h4><i class="fab fa-bitcoin"></i> Bitcoin Wallet Address</h4>
-                <div class="wallet-address">
-                    <code>bc1p3w4yfuyu52gdv296nqrs72mfaafkr5qu7u3xmamflrmql0sqvsmqvhazr9</code>
-                    <button onclick="copyWallet()">Copy</button>
-                </div>
-            </div>
-        </section>
+<div id="reviews" class="space-y-2"></div>
+</div>
 
-        <section id="tools-section">
-            <div class="section-header">
-                <i class="fas fa-archive"></i>
-                <h2>VIP Forensic Tools</h2>
-            </div>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <span class="badge">V17.1</span>
-                    <i class="fas fa-microchip tool-icon"></i>
-                    <h3>Oxygen Forensic</h3>
-                    <a href="https://www.mediafire.com/folder/cpxe6acypd69j/OXYGEN+17.1.0.131" class="btn btn-download">Download</a>
-                </div>
-                <div class="tool-card">
-                    <span class="badge gold">V7.71</span>
-                    <i class="fas fa-unlock-alt tool-icon"></i>
-                    <h3>UFED Celebrite</h3>
-                    <div class="pass-box">Password: <span>@gaddtech</span></div>
-                    <div class="btn-group">
-                        <a href="https://www.mediafire.com/folder/y28kdkqp8xnyi/UFED7.71" class="btn btn-outline">Setup</a>
-                        <a href="https://drive.google.com/drive/folders/1HOpn4Qmsqc6TNN0s51pvO6Sqrg3eO4Ws" class="btn btn-crack">Crack</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- PAYMENT -->
+<div class="p-5 text-center">
+<h2 class="glow">USDT Payment</h2>
+<p onclick="copyWallet()" class="cursor-pointer text-sm mt-2">
+0x77Ba12EeB09C2006ad2C0BF893557070194D7ec2
+</p>
 
-        <footer class="main-footer">
-            <p>&copy; 2026 VIP CORE - Professional Engineering</p>
-        </footer>
-    </div>
+<a href="https://t.me/GSMSHTOOL" target="_blank"
+class="bg-blue-600 px-5 py-2 rounded mt-4 inline-block">
+Contact Support
+</a>
+</div>
 
-    <div id="orderModal" class="modal-overlay">
-        <div class="modal-content glass-section">
-            <div class="modal-icon-container"><i class="fas fa-sync fa-spin"></i></div>
-            <h3>Order Under Processing</h3>
-            <div class="order-info-card">
-                <p><strong>Order ID:</strong> <span id="display-order-id">#VIP-78291</span></p>
-                <p><strong>Service:</strong> <span id="display-service">---</span></p>
-                <p><strong>Status:</strong> <span class="status-badge">Awaiting Payment</span></p>
-            </div>
-            <div class="tracking-section">
-                <label>Track Status:</label>
-                <div class="tracking-input-box">
-                    <input type="text" id="track-input" placeholder="Order ID">
-                    <button onclick="trackOrder()">Track</button>
-                </div>
-            </div>
-            <button onclick="closeModal()" class="btn-outline" style="margin-top:20px; width:100%">Close</button>
-        </div>
-    </div>
+<script>
 
-    <script src="app.js"></script>
+// Wallet copy
+function copyWallet(){
+navigator.clipboard.writeText("0x77Ba12EeB09C2006ad2C0BF893557070194D7ec2");
+alert("Wallet copied");
+}
+
+// Reviews generator
+const numbers = [
+"+966598947362","+971583514374","+254765830186","+447422808893","+201903646958"
+];
+
+const texts = [
+"Fast and trusted service 🔥",
+"Unlocked my device in hours!",
+"Best GSM service ever",
+"Highly recommended 👍",
+"Professional support"
+];
+
+let html="";
+numbers.forEach(n=>{
+let masked = n.slice(0,5)+"****"+n.slice(-3);
+let t = texts[Math.floor(Math.random()*texts.length)];
+html += `<div class="bg-gray-900 p-3 rounded">${masked} - ${t}</div>`;
+});
+
+document.getElementById("reviews").innerHTML = html;
+
+</script>
+
 </body>
 </html>
