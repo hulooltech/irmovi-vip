@@ -1,28 +1,111 @@
-<body class="bg-black text-white p-5">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الأسعار | iRmove VIP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #07070d; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); transition: 0.3s; }
+        .glass-card:hover { border-color: #3b82f6; background: rgba(59, 130, 246, 0.05); transform: scale(1.02); }
+        .tab-btn { transition: 0.4s; border-bottom: 2px solid transparent; }
+        .tab-btn.active { border-bottom: 2px solid #3b82f6; color: #3b82f6; background: rgba(59, 130, 246, 0.1); }
+        .price-tag { color: #3b82f6; font-weight: 900; font-size: 1.2rem; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
 
-<h1>iPhone Unlock Prices</h1>
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-black italic mb-2">قائمة <span class="text-blue-500">الأسعار</span> الحصرية</h1>
+            <p class="text-gray-500">اختر نوع الجهاز لعرض تكلفة الخدمة</p>
+        </div>
 
-<div class="grid gap-2">
+        <div class="flex justify-center gap-2 mb-10 overflow-x-auto pb-2">
+            <button onclick="showTab('iphone')" id="btn-iphone" class="tab-btn active px-6 py-3 rounded-t-xl font-bold flex items-center gap-2">
+                <i class="fab fa-apple"></i> iPhone
+            </button>
+            <button onclick="showTab('ipad')" id="btn-ipad" class="tab-btn px-6 py-3 rounded-t-xl font-bold flex items-center gap-2">
+                <i class="fas fa-tablet-alt"></i> iPad
+            </button>
+            <button onclick="showTab('watch')" id="btn-watch" class="tab-btn px-6 py-3 rounded-t-xl font-bold flex items-center gap-2">
+                <i class="fas fa-clock"></i> Apple Watch
+            </button>
+        </div>
 
-<script>
-const iphones = {
-"iPhone 6":25,"iPhone 6 Plus":25,"iPhone 6s":25,"iPhone 6s Plus":25,
-"iPhone SE":30,
-"iPhone 7":30,"iPhone 7 Plus":30,
-"iPhone 8":35,"iPhone 8 Plus":35,
-"iPhone X":35,"iPhone XR":40,"iPhone XS":40,"iPhone XS Max":45,
-"iPhone 11":45,"iPhone 11 Pro":55,"iPhone 11 Pro Max":75,
-"iPhone 12":90,"iPhone 12 mini":90,"iPhone 12 Pro":95,"iPhone 12 Pro Max":100,
-"iPhone 13":115,"iPhone 13 mini":120,"iPhone 13 Pro":135,"iPhone 13 Pro Max":150,
-"iPhone 14":160,"iPhone 14 Plus":160,"iPhone 14 Pro":165,"iPhone 14 Pro Max":175,
-"iPhone 15":165,"iPhone 15 Plus":175,"iPhone 15 Pro":180,"iPhone 15 Pro Max":190,
-"iPhone 16":190,"iPhone 16 Plus":195,"iPhone 16 Pro":195,"iPhone 16 Pro Max":205
-};
+        <div id="iphone" class="tab-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            </div>
 
-for(let k in iphones){
-document.write(`<div class="bg-gray-900 p-3 rounded">${k} - $${iphones[k]}</div>`);
-}
-</script>
+        <div id="ipad" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            </div>
 
-</div>
+        <div id="watch" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            </div>
+
+        <div class="text-center mt-12">
+            <a href="index.html" class="text-gray-500 hover:text-white transition"><i class="fas fa-arrow-right ml-2"></i> العودة للرئيسية</a>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            iphone: {
+                "iPhone 6 / Plus": 25, "iPhone 6s / Plus": 25, "iPhone SE": 30,
+                "iPhone 7 / Plus": 30, "iPhone 8 / Plus": 35, "iPhone X": 35,
+                "iPhone XR / XS": 40, "iPhone XS Max": 45, "iPhone 11": 45,
+                "iPhone 11 Pro": 55, "iPhone 11 Pro Max": 75, "iPhone 12 / Mini": 90,
+                "iPhone 12 Pro": 95, "iPhone 12 Pro Max": 100, "iPhone 13 / Mini": 115,
+                "iPhone 13 Pro": 135, "iPhone 13 Pro Max": 150, "iPhone 14 / Plus": 160,
+                "iPhone 14 Pro": 165, "iPhone 14 Pro Max": 175, "iPhone 15": 165,
+                "iPhone 15 Plus": 175, "iPhone 15 Pro": 180, "iPhone 15 Pro Max": 190,
+                "iPhone 16 / 16e": 190, "iPhone 16 Plus": 195, "iPhone 16 Pro": 195,
+                "iPhone 16 Pro Max": 205, "iPhone 17 / Air": 195, "iPhone 17 Pro": 200,
+                "iPhone 17 Pro Max": 210
+            },
+            ipad: {
+                "iPad 8": 50, "iPad 9": 55, "iPad 10": 65,
+                "iPad Air 4": 80, "iPad Air 5": 85, "iPad Pro 9.7": 140,
+                "iPad Pro 10.5": 140, "iPad Pro 11 (1-4)": 140, "iPad Pro 12.9 (1-6)": 150
+            },
+            watch: {
+                "Series 4": 50, "Series 5": 60, "Series 6": 80,
+                "Series 7": 80, "Series 8": 90, "Series 9": 100,
+                "Series 10 / 11": 100, "Ultra 1": 110, "Ultra 2": 120, "Ultra 3": 120
+            }
+        };
+
+        function renderPrices() {
+            for (let category in data) {
+                const container = document.getElementById(category);
+                let html = '';
+                for (let model in data[category]) {
+                    html += `
+                        <div class="glass-card p-4 rounded-2xl flex justify-between items-center px-5 animate__animated animate__fadeIn">
+                            <span class="font-medium text-gray-300 text-sm md:text-base">${model}</span>
+                            <span class="price-tag">$${data[category][model]}</span>
+                        </div>
+                    `;
+                }
+                container.innerHTML = html;
+            }
+        }
+
+        function showTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // Initialize
+        renderPrices();
+    </script>
 </body>
+</html>
