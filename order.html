@@ -1,86 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Order Service</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
+<body class="bg-[#07070d] text-white p-6">
+    <div class="max-w-md mx-auto bg-gray-900/50 p-8 rounded-3xl border border-gray-800 mt-10">
+        <h2 class="text-3xl font-bold mb-6 text-center">Place Your <span class="text-blue-500">Order</span></h2>
+        
+        <div class="space-y-6">
+            <div>
+                <label class="block text-gray-400 text-sm mb-2">Device IMEI / Serial</label>
+                <input id="imei" type="text" placeholder="Enter 15 digit IMEI" class="w-full bg-black border border-gray-700 p-4 rounded-xl focus:border-blue-500 outline-none">
+            </div>
 
-<body class="bg-black text-white p-5">
+            <div>
+                <label class="block text-gray-400 text-sm mb-2">Transaction ID (TXID)</label>
+                <input id="txid" type="text" placeholder="Enter Payment Reference" class="w-full bg-black border border-gray-700 p-4 rounded-xl focus:border-blue-500 outline-none">
+            </div>
 
-<h1 class="text-2xl mb-5">Place Order</h1>
-
-<select id="service" class="text-black p-2 w-full mb-3" onchange="loadModels()">
-<option value="">Select Service</option>
-<option value="iphone">iPhone Unlock</option>
-<option value="frp">FRP Android</option>
-<option value="bypass">iCloud Bypass</option>
-</select>
-
-<select id="model" class="text-black p-2 w-full mb-3" onchange="setPrice()">
-<option>Select Model</option>
-</select>
-
-<input id="imei" placeholder="Enter IMEI / Serial" class="text-black p-2 w-full mb-3">
-
-<div id="price">Price: $0</div>
-
-<button onclick="pay()" class="bg-green-600 p-3 w-full mt-3 rounded">I Paid</button>
-
-<script>
-
-let price=0, selected="";
-
-const data = {
-iphone: {
-"iPhone 13 Pro":135,
-"iPhone 14 Pro":165,
-"iPhone 15 Pro Max":190
-},
-frp: {
-"Samsung":15,
-"Xiaomi":18,
-"Huawei":20
-},
-bypass:{
-"All iPhones":12
-}
-};
-
-function loadModels(){
-let s = document.getElementById("service").value;
-let m = document.getElementById("model");
-m.innerHTML="<option>Select Model</option>";
-
-for(let k in data[s]){
-m.innerHTML += `<option value="${k}|${data[s][k]}">${k} - $${data[s][k]}</option>`;
-}
-}
-
-function setPrice(){
-let val = document.getElementById("model").value.split("|");
-selected = val[0];
-price = val[1];
-document.getElementById("price").innerText="Price: $"+price;
-}
-
-function pay(){
-let imei=document.getElementById("imei").value;
-if(!imei){alert("Enter IMEI");return;}
-
-let order="IRV-"+Math.floor(Math.random()*99999);
-
-let msg=`Hello, I have paid
-
-Order ID: ${order}
-Service: ${selected}
-IMEI: ${imei}
-TXID: `;
-
-window.open("https://t.me/GSMSHTOOL?text="+encodeURIComponent(msg));
-}
-
-</script>
-
+            <button onclick="pay()" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 p-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
+                Submit via Telegram
+            </button>
+        </div>
+    </div>
 </body>
-</html>
