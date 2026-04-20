@@ -1,99 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iRmove VIP | iCloud Unlock & GSM Services</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<meta name="description" content="iRmove VIP - Professional iCloud Unlock, IMEI Check, FRP Bypass and GSM Tools. Fast and trusted service.">
-<meta name="keywords" content="iCloud Unlock, IMEI Check, GSM Tools, FRP Bypass, iPhone Unlock">
-
-<style>
-body{background:#0b0b12;color:white;font-family:Arial;}
-.card{transition:.3s}
-.card:hover{transform:translateY(-5px) scale(1.04)}
-.glow{text-shadow:0 0 15px #6c63ff}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iRmove VIP | Premium GSM Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            background: radial-gradient(circle at top center, #1a1a2e 0%, #07070d 100%);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+        }
+        .logo-text {
+            font-size: 50px;
+            font-weight: 900;
+            background: linear-gradient(to right, #00c6ff, #0072ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 114, 255, 0.5);
+        }
+        .btn-premium {
+            background: linear-gradient(45deg, #3b82f6, #10b981);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: 0.3s;
+        }
+        .btn-premium:hover {
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+            transform: scale(1.05);
+        }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        .floating { animation: float 3s ease-in-out infinite; }
+    </style>
 </head>
+<body class="min-h-screen">
 
-<body>
+    <header class="text-center py-16 animate__animated animate__fadeInDown">
+        <div class="floating mb-4">
+            <i class="fas fa-microchip text-6xl text-blue-500 mb-4"></i>
+        </div>
+        <h1 class="logo-text">iRmove VIP</h1>
+        <p class="text-gray-400 tracking-widest uppercase text-sm mt-2">Elite Digital Unlocking Services</p>
+        
+        <div class="mt-8 space-x-4">
+            <a href="order.html" class="btn-premium px-8 py-3 rounded-full font-bold inline-block">
+                <i class="fas fa-shopping-cart mr-2"></i>Order Now
+            </a>
+            <a href="check.html" class="glass px-8 py-3 rounded-full font-bold inline-block border border-gray-700">
+                <i class="fas fa-search-location mr-2"></i>Free Check
+            </a>
+        </div>
+    </header>
 
-<!-- HERO -->
-<div class="text-center py-12">
-<h1 class="text-4xl md:text-5xl font-bold glow">iRmove VIP</h1>
-<p class="text-gray-400 mt-3">Professional GSM & iCloud Unlock Services</p>
+    <main class="max-w-5xl mx-auto px-6 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="iphone.html" class="glass p-8 rounded-2xl text-center block">
+                <i class="fab fa-apple text-4xl mb-4 text-blue-400"></i>
+                <h3 class="font-bold text-xl">iPhone</h3>
+                <p class="text-gray-500 text-sm mt-2">iCloud & Network</p>
+            </a>
+            <a href="android.html" class="glass p-8 rounded-2xl text-center block">
+                <i class="fab fa-android text-4xl mb-4 text-green-400"></i>
+                <h3 class="font-bold text-xl">Android</h3>
+                <p class="text-gray-500 text-sm mt-2">FRP & MDM Bypass</p>
+            </a>
+            <a href="programs.html" class="glass p-8 rounded-2xl text-center block">
+                <i class="fas fa-laptop-code text-4xl mb-4 text-purple-400"></i>
+                <h3 class="font-bold text-xl">Forensics</h3>
+                <p class="text-gray-500 text-sm mt-2">Pro Tools Download</p>
+            </a>
+            <a href="bypass.html" class="glass p-8 rounded-2xl text-center block">
+                <i class="fas fa-unlock-alt text-4xl mb-4 text-orange-400"></i>
+                <h3 class="font-bold text-xl">Bypass</h3>
+                <p class="text-gray-500 text-sm mt-2">Instant Solutions</p>
+            </a>
+        </div>
 
-<div class="mt-6">
-<a href="order.html" class="bg-blue-600 px-6 py-2 rounded mr-2">Order Now</a>
-<a href="check.html" class="bg-gray-700 px-6 py-2 rounded">Free Check</a>
-</div>
-</div>
+        <section class="mt-20">
+            <h2 class="text-2xl font-bold mb-8 flex items-center">
+                <span class="w-10 h-1 bg-blue-500 inline-block mr-3"></span> Live Feed
+            </h2>
+            <div id="chat-container" class="space-y-4">
+                </div>
+        </section>
+    </main>
 
-<!-- SERVICES -->
-<div class="grid grid-cols-2 md:grid-cols-3 gap-5 p-5">
+    <footer class="mt-20 border-t border-gray-800 py-10 text-center">
+        <div class="mb-6">
+            <a href="https://t.me/GSMSHTOOL" target="_blank" class="bg-blue-600 hover:bg-blue-500 p-4 rounded-full inline-flex items-center space-x-2 transition">
+                <i class="fab fa-telegram-plane text-2xl"></i>
+                <span class="font-bold">Contact Official Support</span>
+            </a>
+        </div>
+        <p class="text-gray-500 text-sm mb-4">World's most trusted GSM forensic & unlock provider.</p>
+        <p class="text-xs text-gray-600">© 2026 iRmove VIP - Advanced Technologies</p>
+    </footer>
 
-<a href="iphone.html" class="card bg-gray-900 p-5 rounded-xl text-center">📱 iPhone</a>
-<a href="ipad.html" class="card bg-gray-900 p-5 rounded-xl text-center">📲 iPad</a>
-<a href="watch.html" class="card bg-gray-900 p-5 rounded-xl text-center">⌚ Watch</a>
-<a href="bypass.html" class="card bg-gray-900 p-5 rounded-xl text-center">🔓 iCloud Bypass</a>
-<a href="frp.html" class="card bg-gray-900 p-5 rounded-xl text-center">🤖 FRP Android</a>
-<a href="programs.html" class="card bg-gray-900 p-5 rounded-xl text-center">💻 Free Programs</a>
+    <script>
+        const reviews = [
+            {phone: "+96659****", msg: "iPhone 15 Pro Max Unlocked in 5 mins! ⚡"},
+            {phone: "+97158****", msg: "Best MD-NEXT reseller ever. 💎"},
+            {phone: "+20190****", msg: "S24 Ultra FRP Done. Amazing support."},
+            {phone: "+44742****", msg: "Trusted and fast service! ⭐⭐⭐⭐⭐"}
+        ];
 
-</div>
-
-<!-- REVIEWS -->
-<div class="p-5">
-<h2 class="text-xl mb-4 glow">Customer Reviews</h2>
-
-<div id="reviews" class="space-y-2"></div>
-</div>
-
-<!-- PAYMENT -->
-<div class="p-5 text-center">
-<h2 class="glow">USDT Payment</h2>
-<p onclick="copyWallet()" class="cursor-pointer text-sm mt-2">
-0x77Ba12EeB09C2006ad2C0BF893557070194D7ec2
-</p>
-
-<a href="https://t.me/GSMSHTOOL" target="_blank"
-class="bg-blue-600 px-5 py-2 rounded mt-4 inline-block">
-Contact Support
-</a>
-</div>
-
-<script>
-
-// Wallet copy
-function copyWallet(){
-navigator.clipboard.writeText("0x77Ba12EeB09C2006ad2C0BF893557070194D7ec2");
-alert("Wallet copied");
-}
-
-// Reviews generator
-const numbers = [
-"+966598947362","+971583514374","+254765830186","+447422808893","+201903646958"
-];
-
-const texts = [
-"Fast and trusted service 🔥",
-"Unlocked my device in hours!",
-"Best GSM service ever",
-"Highly recommended 👍",
-"Professional support"
-];
-
-let html="";
-numbers.forEach(n=>{
-let masked = n.slice(0,5)+"****"+n.slice(-3);
-let t = texts[Math.floor(Math.random()*texts.length)];
-html += `<div class="bg-gray-900 p-3 rounded">${masked} - ${t}</div>`;
-});
-
-document.getElementById("reviews").innerHTML = html;
-
-</script>
-
+        let chatHtml = "";
+        reviews.forEach((r, i) => {
+            chatHtml += `
+            <div class="glass p-4 rounded-xl flex justify-between items-center animate__animated animate__fadeInUp" style="animation-delay: ${i*0.2}s">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-user text-xs"></i>
+                    </div>
+                    <div>
+                        <div class="text-blue-400 text-xs font-bold">${r.phone}</div>
+                        <div class="text-sm">${r.msg}</div>
+                    </div>
+                </div>
+                <button onclick="this.classList.toggle('text-red-500')" class="transition"><i class="fas fa-heart"></i></button>
+            </div>`;
+        });
+        document.getElementById("chat-container").innerHTML = chatHtml;
+    </script>
 </body>
 </html>
