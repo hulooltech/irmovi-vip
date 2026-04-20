@@ -1,138 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iRmove VIP | Premium GSM Solutions</title>
+    
+    <title>iRmove VIP | فك أجهزة آيفون، أندرويد، وأدوات الطب الشرعي</title>
+    <meta name="description" content="منصة iRmove VIP لفك آيكلاود، تخطي حساب جوجل FRP، وتحميل برامج الطب الشرعي MD-NEXT, Magnet Axiom, UFED بأفضل الأسعار.">
+    <meta name="keywords" content="iRmove, فك ايفون, تخطي ايكلاود, iCloud bypass, FRP unlock, MD-NEXT, Magnet Axiom, برامج الطب الشرعي, صيانة جوالات, فتح شبكة">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
     <style>
-        body {
-            background: radial-gradient(circle at top center, #1a1a2e 0%, #07070d 100%);
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        .glass:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: #3b82f6;
-            transform: translateY(-5px);
-        }
-        .logo-text {
-            font-size: 50px;
-            font-weight: 900;
-            background: linear-gradient(to right, #00c6ff, #0072ff, #00ff88);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 114, 255, 0.5);
-        }
-        .btn-premium {
-            background: linear-gradient(45deg, #3b82f6, #10b981);
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            transition: 0.3s;
-        }
-        .btn-premium:hover {
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
-            transform: scale(1.05);
-        }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
-        .floating { animation: float 3s ease-in-out infinite; }
+        body { background: radial-gradient(circle at top, #111827, #07070d); color: white; overflow-x: hidden; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.4s; }
+        .glass:hover { border-color: #3b82f6; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1); }
+        .premium-text { background: linear-gradient(90deg, #00c6ff, #0072ff, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+        .chat-bubble { animation: fadeInUp 0.5s ease-out; position: relative; border-right: 3px solid #3b82f6; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* تحسين شريط البحث الصغير */
+        .search-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 10px 20px; width: 100%; max-width: 400px; margin: 0 auto; outline: none; transition: 0.3s; }
+        .search-box:focus { border-color: #3b82f6; box-shadow: 0 0 15px rgba(59,130,246,0.3); }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen font-sans">
 
-    <header class="text-center py-16 animate__animated animate__fadeInDown">
-        <div class="floating mb-4">
-            <i class="fas fa-microchip text-6xl text-blue-500 mb-4"></i>
+    <header class="text-center py-16 animate__animated animate__fadeIn">
+        <div class="mb-6">
+            <i class="fas fa-shield-halved text-6xl text-blue-500 animate__animated animate__pulse animate__infinite"></i>
         </div>
-        <h1 class="logo-text">iRmove VIP</h1>
-        <p class="text-gray-400 tracking-widest uppercase text-sm mt-2">Elite Digital Unlocking Services</p>
+        <h1 class="text-5xl md:text-7xl premium-text mb-4">iRmove VIP</h1>
+        <p class="text-gray-400 tracking-widest text-sm mb-8 uppercase">
+            الأدوات الاحترافية لـ MD-NEXT | Magnet Axiom | UFED | فك الأقفال
+        </p>
+
+        <div class="px-6 mb-10">
+            <input type="text" placeholder="ابحث عن موديل هاتف أو اسم برنامج..." class="search-box text-center text-sm">
+        </div>
         
-        <div class="mt-8 space-x-4">
-            <a href="order.html" class="btn-premium px-8 py-3 rounded-full font-bold inline-block">
-                <i class="fas fa-shopping-cart mr-2"></i>Order Now
-            </a>
-            <a href="check.html" class="glass px-8 py-3 rounded-full font-bold inline-block border border-gray-700">
-                <i class="fas fa-search-location mr-2"></i>Free Check
-            </a>
+        <div class="flex justify-center gap-4 px-6">
+            <a href="order.html" class="bg-blue-600 hover:bg-blue-500 px-8 md:px-10 py-4 rounded-2xl font-bold transition shadow-lg shadow-blue-900/20 text-sm md:text-base text-center">اطلب الآن</a>
+            <a href="check.html" class="glass px-8 md:px-10 py-4 rounded-2xl font-bold transition text-sm md:text-base text-center">فحص مجاني</a>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <a href="iphone.html" class="glass p-8 rounded-2xl text-center block">
-                <i class="fab fa-apple text-4xl mb-4 text-blue-400"></i>
-                <h3 class="font-bold text-xl">iPhone</h3>
-                <p class="text-gray-500 text-sm mt-2">iCloud & Network</p>
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+            <a href="iphone.html" class="glass p-8 rounded-3xl text-center block group">
+                <i class="fab fa-apple text-4xl mb-4 text-blue-400 group-hover:scale-110 transition"></i>
+                <h3 class="font-bold text-xl">آيفون & آيباد</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">iCloud & Network Unlock</p>
             </a>
-            <a href="android.html" class="glass p-8 rounded-2xl text-center block">
-                <i class="fab fa-android text-4xl mb-4 text-green-400"></i>
-                <h3 class="font-bold text-xl">Android</h3>
-                <p class="text-gray-500 text-sm mt-2">FRP & MDM Bypass</p>
+            <a href="android.html" class="glass p-8 rounded-3xl text-center block group">
+                <i class="fab fa-android text-4xl mb-4 text-green-400 group-hover:scale-110 transition"></i>
+                <h3 class="font-bold text-xl">أندرويد FRP</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">Samsung, Mi, Huawei</p>
             </a>
-            <a href="programs.html" class="glass p-8 rounded-2xl text-center block">
-                <i class="fas fa-laptop-code text-4xl mb-4 text-purple-400"></i>
-                <h3 class="font-bold text-xl">Forensics</h3>
-                <p class="text-gray-500 text-sm mt-2">Pro Tools Download</p>
+            <a href="programs.html" class="glass p-8 rounded-3xl text-center block group">
+                <i class="fas fa-microscope text-4xl mb-4 text-purple-400 group-hover:scale-110 transition"></i>
+                <h3 class="font-bold text-xl">الطب الشرعي</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">MD-NEXT & Magnet Axiom</p>
             </a>
-            <a href="bypass.html" class="glass p-8 rounded-2xl text-center block">
-                <i class="fas fa-unlock-alt text-4xl mb-4 text-orange-400"></i>
-                <h3 class="font-bold text-xl">Bypass</h3>
-                <p class="text-gray-500 text-sm mt-2">Instant Solutions</p>
+            <a href="bypass.html" class="glass p-8 rounded-3xl text-center block group">
+                <i class="fas fa-bolt text-4xl mb-4 text-yellow-400 group-hover:scale-110 transition"></i>
+                <h3 class="font-bold text-xl">تجاوز سريع</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">حلول بنقرة واحدة</p>
             </a>
         </div>
 
-        <section class="mt-20">
-            <h2 class="text-2xl font-bold mb-8 flex items-center">
-                <span class="w-10 h-1 bg-blue-500 inline-block mr-3"></span> Live Feed
-            </h2>
-            <div id="chat-container" class="space-y-4">
+        <section class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <h2 class="text-2xl font-bold italic">سجل العمليات الناجحة...</h2>
+            </div>
+            
+            <div id="live-chat" class="space-y-4 h-[400px] overflow-hidden relative">
                 </div>
         </section>
     </main>
 
-    <footer class="mt-20 border-t border-gray-800 py-10 text-center">
-        <div class="mb-6">
-            <a href="https://t.me/GSMSHTOOL" target="_blank" class="bg-blue-600 hover:bg-blue-500 p-4 rounded-full inline-flex items-center space-x-2 transition">
-                <i class="fab fa-telegram-plane text-2xl"></i>
-                <span class="font-bold">Contact Official Support</span>
-            </a>
+    <footer class="text-center py-10 border-t border-gray-900 bg-black/50">
+        <div class="mb-6 flex justify-center gap-6 text-gray-500 text-sm">
+            <span>iPhone 16 Pro Max</span>
+            <span>Samsung S24 Ultra</span>
+            <span>MD-NEXT 2.0</span>
+            <span>FRP Unlock</span>
         </div>
-        <p class="text-gray-500 text-sm mb-4">World's most trusted GSM forensic & unlock provider.</p>
-        <p class="text-xs text-gray-600">© 2026 iRmove VIP - Advanced Technologies</p>
+        <a href="https://t.me/GSMSHTOOL" class="bg-[#0088cc] px-8 py-3 rounded-full inline-flex items-center gap-3 font-bold mb-6 hover:scale-105 transition shadow-lg shadow-blue-500/20">
+            <i class="fab fa-telegram-plane"></i> تواصل مع الدعم الرسمي
+        </a>
+        <p class="text-gray-600 text-xs italic">جميع الحقوق محفوظة © 2026 iRmove VIP - التقنية المتقدمة</p>
     </footer>
 
     <script>
-        const reviews = [
-            {phone: "+96659****", msg: "iPhone 15 Pro Max Unlocked in 5 mins! ⚡"},
-            {phone: "+97158****", msg: "Best MD-NEXT reseller ever. 💎"},
-            {phone: "+20190****", msg: "S24 Ultra FRP Done. Amazing support."},
-            {phone: "+44742****", msg: "Trusted and fast service! ⭐⭐⭐⭐⭐"}
+        // مصفوفة الأرقام التي أرفقتها (مختصرة هنا للتوضيح، يمكنك وضع القائمة كاملة)
+        const rawNumbers = ["+966 559 97 1663", "+966 534 85 5209", "+966 544 30 7360", "+966 536 71 3825", "+966 549 70 5468", "+966 550 26 3617", "+966 528 07 9889", "+966 565 52 3415", "+966 566 01 4544", "+966 530 09 8093"]; // ضع هنا كل الـ 150 رقم
+
+        const messages = [
+            "تم فك قفل iPhone 16 Pro Max بنجاح ⚡",
+            "تحميل ملفات MD-NEXT بسرعة هائلة 💎",
+            "تخطي حساب جوجل (FRP) لسامسونج S23 Ultra 👍",
+            "تم تفعيل باقة Magnet Axiom بنجاح ✅",
+            "خدمة ممتازة ودعم فني متجاوب جداً",
+            "تم فتح شبكة آيفون 15 في أقل من ساعة"
         ];
 
-        let chatHtml = "";
-        reviews.forEach((r, i) => {
-            chatHtml += `
-            <div class="glass p-4 rounded-xl flex justify-between items-center animate__animated animate__fadeInUp" style="animation-delay: ${i*0.2}s">
-                <div class="flex items-center">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-user text-xs"></i>
-                    </div>
-                    <div>
-                        <div class="text-blue-400 text-xs font-bold">${r.phone}</div>
-                        <div class="text-sm">${r.msg}</div>
-                    </div>
+        // دالة تضليل الأرقام (تظهر أول قسمين وآخر قسم)
+        function maskNumber(num) {
+            let parts = num.split(' ');
+            if(parts.length < 4) return num; 
+            return parts[0] + " " + parts[1] + " **** " + parts[4];
+        }
+
+        const chatContainer = document.getElementById('live-chat');
+
+        function addReview() {
+            const randNum = rawNumbers[Math.floor(Math.random() * rawNumbers.length)];
+            const randMsg = messages[Math.floor(Math.random() * messages.length)];
+            
+            const div = document.createElement('div');
+            div.className = "chat-bubble glass p-4 rounded-2xl flex justify-between items-center animate__animated animate__fadeInUp";
+            div.innerHTML = `
+                <div>
+                    <div class="text-blue-400 text-xs font-bold mb-1">${maskNumber(randNum)}</div>
+                    <div class="text-sm text-gray-200">${randMsg}</div>
                 </div>
-                <button onclick="this.classList.toggle('text-red-500')" class="transition"><i class="fas fa-heart"></i></button>
-            </div>`;
-        });
-        document.getElementById("chat-container").innerHTML = chatHtml;
+                <div class="text-xs text-gray-500">منذ ثوانِ</div>
+            `;
+            
+            chatContainer.prepend(div);
+            if (chatContainer.children.length > 6) {
+                chatContainer.removeChild(chatContainer.lastChild);
+            }
+        }
+
+        setInterval(addReview, 3500);
+        // توليد ابتدائي لملء الفراغ
+        for(let i=0; i<4; i++) addReview();
     </script>
 </body>
 </html>
